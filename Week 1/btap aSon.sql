@@ -73,9 +73,36 @@ INSERT INTO HuongDan VALUES
 
 -- CAU 1 -- SELECT magv,hotengv,makhoa FROM GIANGVIEN; 
 
-SELEct magv,hotengv,giangvien.makhoa, khoa.tenkhoa from giangvien
-inner join khoa 
-on giangvien.makhoa= khoa.makhoa;
+-- CAU 2 SELEct giangvien.magv,hotengv,giangvien.makhoa, khoa.tenkhoa from giangvien
+-- inner join khoa
+-- on giangvien.makhoa= khoa.makhoa
+-- where tenkhoa ='DIALY VA QLTN';
+
+-- CAU 3 SELECT count(KHOA.TENKHOA) AS CountCNSH, khoa.tenkhoa FROM SINHVIEN
+-- JOIN KHOA ON KHOA.MAKHOA = SINHVIEN.MAKHOA
+-- WHERE KHOA.TENKHOA = 'Cong nghe Sinh hoc';
+
+-- cau4 SELECT MASV, SINHVIEN.MAKHOA, HOTENSV, NAMSINH FROM SINHVIEN
+-- JOIN KHOA ON KHOA.MAKHOA = SINHVIEN.MAKHOA
+-- WHERE KHOA.TENKHOA = 'Toan';
+
+-- CAU 5 SELECT count(GIANGVIEN.MAKHOA) AS COUNTGVIEN, GIANGVIEN.MAKHOA FROM GIANGVIEN
+-- JOIN KHOA ON GIANGVIEN.MAKHOA = KHOA.MAKHOA
+-- WHERE KHOA.TENKHOA ='Cong nghe Sinh hoc';
+
+-- cau 6 SELECT sinhvien.masv, sinhvien.hotensv,sinhvien.namsinh,sinhvien.quequan 
+-- from sinhvien
+-- left join huongdan on sinhvien.masv = huongdan.masv
+-- where huongdan.masv is null;
+
+
+
+
+
+
+
+
+
 
 
 
