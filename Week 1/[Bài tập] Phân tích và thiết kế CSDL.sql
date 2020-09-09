@@ -14,19 +14,41 @@ country VARCHAR(50) NOT NULL,
 creditLimit INT(50)
 );
 
+ALTER TABLE customers
+ADD COLUMN salesRepEmployeeNumber INT NOT NULL,
+ADD FOREIGN KEY(salesRepEmployeeNumber) REFERENCES employees(employeeNumber);
+
+
 
 CREATE TABLE productline(
-product_id INT,
-product_description VARCHAR(250)
+productLine VARCHAR(50) PRIMARY KEY NOT NULL,
+textDescription  TEXT,
+image TEXT
 );
 
+
 CREATE TABLE products(
-product_code VARCHAR(255),
-product_name VARCHAR(255),
-product_supplier VARCHAR(255),
-product_inStock INT,
-import_price DOUBLE(16,5),
-sell_price DOUBLE
+productCode VARCHAR(15) PRIMARY KEY,
+productName  VARCHAR(70) NOT NULL,
+productScale VARCHAR(15) NOT NULL,
+productVendor VARCHAR(50) NOT NULL,
+productDescription TEXT NOT NULL,
+quantityInStock  INT NOT NULL,
+buyPrice DOUBLE NOT NULL,
+MSRP DOUBLE NOT NULL
+);
+
+
+ALTER TABLE products
+ADD COLUMN productLine VARCHAR(50),
+ADD FOREIGN KEY(productLine) REFERENCES productLine(productLine);
+
+
+CREATE TABLE product_orders(
+orderNumber INT NOT NULL,
+FOREIGN KEY(orderNumber) REFERENCES orders(orderNumber),
+productCode VARCHAR(15) NOT NULL,
+FOREIGN KEY(productCode) REFERENCES products(productCode)
 );
 
 CREATE TABLE orders(
@@ -40,6 +62,10 @@ quantityOrdered INT NOT NULL,
 priceEach DOUBLE NOT NULL
 );
 
+ALTER TABLE orders
+ADD COLUMN customerNumber INT NOT NULL,
+ADD FOREIGN KEY (customerNumber) REFERENCES customers(customerNumber);
+
 CREATE TABLE payments(
 customerNumber  INT NOT NULL ,
 checkNumber VARCHAR(50) NOT NULL,
@@ -48,18 +74,48 @@ amount DOUBLE NOT NULL,
 constraint payment_fk FOREIGN KEY(customerNumber) REFERENCES customers(customerNumber)
 );
 
+ALTER TABLE payments
+ADD COLUMN customerNumber INT NOT NULL,
+ADD FOREIGN KEY (customerNumber) REFERENCES customers(customerNumber);
+
+
+
 CREATE TABLE employees(
-employee_id INT,
-boss_id	INT,
-employee_name VARCHAR(100),
-employee_email VARCHAR(100),
-employee_job VARCHAR(100)
+employeeNumber  INT PRIMARY KEY NOT NULL,
+lastName	VARCHAR(50) NOT NULL,
+firstName  VARCHAR(50) NOT NULL,
+email  VARCHAR(100) NOT NULL,
+jobTitle  VARCHAR(50) NOT NULL
 );
+
+ALTER TABLE employees
+ADD COLUMN reportTo INT NOT NULL,
+ADD FOREIGN KEY(reportTo) REFERENCES employees(employeeNumber);
+
+ALTER TABLE employees
+ADD COLUMN officeCode VARCHAR(10) NOT NULL,
+ADD FOREIGN KEY(officeCode) REFERENCES offices(officeCode);
+
+
+
+
 
 CREATE TABLE offices(
-office_id	INT,
-office_address VARCHAR(255),
-office_tel INT,
-office_country VARCHAR(100)
+officeCode 	VARCHAR(10) NOT NULL PRIMARY KEY,
+city  VARCHAR(50) NOT NULL,
+phone  VARCHAR(50) NOT NULL,
+addressLine1  VARCHAR(50) NOT NULL,
+addressLine2  VARCHAR(50) NOT NULL,
+state VARCHAR(50),
+country VARCHAR(50) NOT NULL,
+postalCode VARCHAR(15) NOT NULL
 );
 
+
+
+CREATE TABLE orderDetails(
+orderNumber INT NOT NULL,
+productCode VARCHAR(15)  NOT NULL,
+FOREIGN KEY(orderNumber) references orders (orderNumber),
+FOREIGN KEY(productCode) references products (productCode)
+);
