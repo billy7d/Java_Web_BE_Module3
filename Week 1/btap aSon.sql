@@ -95,6 +95,122 @@ INSERT INTO HuongDan VALUES
 -- left join huongdan on sinhvien.masv = huongdan.masv
 -- where huongdan.masv is null;
 
+<<<<<<< HEAD
+-- cau 7
+-- SELECT khoa.makhoa, khoa.tenkhoa, count(giangvien.magv) as count from giangvien
+-- join khoa on giangvien.makhoa = khoa.makhoa
+-- group by tenkhoa
+
+-- CAU 8 SELECT SINHVIEN.HOTENSV, KHOA.dienthoai AS SODTKHOA FROM KHOA
+-- JOIN SINHVIEN ON KHOA.MAKHOA = SINHVIEN.MAKHOA
+-- WHERE SINHVIEN.HOTENSV ='Le Van Son';
+
+-- CAU 9
+-- SELECT DETAI.MADT, DETAI.TENDT, GIANGVIEN.HOTENGV FROM 
+-- ((HUONGDAN JOIN GIANGVIEN ON HUONGDAN.MAGV = GIANGVIEN.MAGV) 
+--   JOIN DETAI ON HUONGDAN.MADT = DETAI.MADT)
+--   WHERE GIANGVIEN.HOTENGV ='Tran Son';
+
+-- CAU 10
+-- SELECT DETAI.TENDT  FROM 
+-- huongdan JOIN SINHVIEN ON HUONGDAN.MASV = SINHVIEN.MASV
+-- RIGHT JOIN detai ON HUONGDAN.MADT = detai.MADT
+-- WHERE HUONGDAN.MADT IS NULL;
+
+-- cau11
+-- SELECT  giangvien.magv, giangvien.hotengv, khoa.tenkhoa from giangvien
+-- join huongdan on giangvien.magv = huongdan.magv
+-- join khoa on giangvien.makhoa = khoa.makhoa
+-- group by huongdan.magv
+-- having count(huongdan.magv) >=2;
+
+-- cau12
+-- SELECT detai.madt, detai.tendt, detai.kinhphi  from detai
+-- order  by  kinhphi desc
+-- limit 0,1;
+
+-- cau 13
+-- select detai.madt, detai.tendt from detai 
+-- join huongdan on detai.madt = huongdan.madt
+-- group by detai.madt
+-- having count(detai.madt)>=2
+
+-- cau 14
+-- SELECT sinhvien.masv, sinhvien.hotensv,huongdan.ketqua from sinhvien
+-- join huongdan on sinhvien.masv = huongdan.masv
+-- join khoa on sinhvien.makhoa = khoa.makhoa
+-- where khoa.tenkhoa = 'DIALY VA QLTN';
+
+-- cau 15
+-- select khoa.tenkhoa, count(khoa.tenkhoa) from khoa
+-- join sinhvien on khoa.makhoa = sinhvien.makhoa
+-- group by khoa.tenkhoa;
+
+-- cau 16
+-- select sinhvien.masv,sinhvien.makhoa,sinhvien.hotensv,sinhvien.namsinh,sinhvien.quequan from huongdan
+-- join sinhvien on huongdan.masv = sinhvien.masv
+-- join detai on huongdan.madt = detai.madt
+-- where sinhvien.quequan = detai.noiThucTap;
+
+-- cau 17
+-- select * from sinhvien
+-- join huongdan on sinhvien.masv = huongdan.masv
+-- where huongdan.ketqua is null;
+
+-- -- cau 18
+
+-- select sinhvien.masv, sinhvien.hotensv, sinhvien.quequan,huongdan.ketqua from sinhvien
+-- join huongdan on sinhvien.masv = huongdan.masv
+-- where huongdan.ketqua ='0';
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+=======
+>>>>>>> 596d6f59e3ac04840594b0e5f59928a70cdb3a68
 
 
 
