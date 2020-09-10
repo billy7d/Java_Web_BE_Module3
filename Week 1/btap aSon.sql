@@ -95,6 +95,7 @@ INSERT INTO HuongDan VALUES
 -- left join huongdan on sinhvien.masv = huongdan.masv
 -- where huongdan.masv is null;
 
+<<<<<<< HEAD
 -- cau 7
 -- SELECT khoa.makhoa, khoa.tenkhoa, count(giangvien.magv) as count from giangvien
 -- join khoa on giangvien.makhoa = khoa.makhoa
@@ -208,6 +209,8 @@ INSERT INTO HuongDan VALUES
 
 
 
+=======
+>>>>>>> 596d6f59e3ac04840594b0e5f59928a70cdb3a68
 
 
 
