@@ -97,6 +97,21 @@ CALL EDIT(10,'HUNG95','HUNGDZAI',1000000000000);
 
 SELECT * FROM PRODUCT;
 
+CREATE VIEW proView AS
+SELECT products.productcode, products.productname
+FROM products;
+
+select * from proview;
+
+CREATE OR REPLACE VIEW proview as
+select products.productline, products.buyprice, products.productcode
+from products
+where products.productcode = 'S10_1949';
+
+select* from proview;
+
+drop view proview;
+
 
 
 
