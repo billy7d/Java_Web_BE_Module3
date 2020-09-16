@@ -1,23 +1,59 @@
-.boxmodel{
-    margin: auto;
-    width: 90%;
-    border: 10px solid;
-    padding:10px;
-    border-color: blue green yellow hotpink;
+body{
+    font-size:12px;
+    width: 100%;
 
 }
-.boxmodel p{
-    border: 3px dotted lightpink;
-    padding: 10px;
+#main{
+    width: 100%;
+    padding: 0;
+    border: 1px solid;
+}
+#head{
+    height: 100px;
+    background-color: hotpink;
+    border: 1px solid;
+    padding: 15px;
+}
+#head-link{
+    height: 30px;
+    left: 0px;
+    right: 0px;
+    border: 1px solid;
+
+    clear: both;
+}
+#left{
+    height: 150px;
+    width: 25%;
+    border: 1px solid;
+    float: left;
+    padding: 0;
+
 }
 
-#box1{
-    margin-top: 10px;
-}
-#box2{
-    margin-top: 20px;
-}
+#content{
+    float: left;
+    width:50%;
+    border: 1px solid;
+    padding: 0;
+    height: 150px;
+    margin-left: 5px;
 
-#box3{
-    margin-top: 30px;
+}
+#right{
+    width:  24% ;
+    float: left;
+    border: 1px solid;
+    height: 150px;
+    padding: 0;
+    margin-left: 5px;
+
+}
+#footer{
+    clear: both;
+    padding-top: 15px;
+    border: solid 1px;
+
+    height: 200px;
+
 }
