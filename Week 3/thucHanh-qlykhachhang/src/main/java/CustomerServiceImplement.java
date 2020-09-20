@@ -7,6 +7,10 @@ public class CustomerServiceImplement implements CustomerService {
 
     private static Map<Integer,Customer> customers;
 
+    public CustomerServiceImplement(){
+
+    }
+
     static{
         customers = new HashMap<>();
         customers.put(1, new Customer(1, "John", "john@codegym.vn", "Hanoi"));

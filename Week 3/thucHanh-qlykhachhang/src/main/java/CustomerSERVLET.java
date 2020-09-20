@@ -27,8 +27,10 @@ public class CustomerSERVLET extends HttpServlet {
                 updateCustomer(request,response);
                 break;
             case "delete":
+                deleteCustomer(request,response);
                 break;
             default:
+                listCustomers(request, response);
                 break;
         }
     }
@@ -46,8 +48,10 @@ public class CustomerSERVLET extends HttpServlet {
                 showEditForm(request,response);
                 break;
             case "delete":
+                showDeleteForm(request,response);
                 break;
             case "view":
+                viewCustomer(request,response);
                 break;
             default:
                 listCustomers(request, response);
@@ -153,6 +157,65 @@ public class CustomerSERVLET extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response){
+       int id = Integer.parseInt(request.getParameter("id"));
+       Customer customer = customerService.findById(id);
+       RequestDispatcher dispatcher;
+
+       if (customer == null){
+           dispatcher = request.getRequestDispatcher("error-404.jsp");
+       } else {
+           request.setAttribute("customer",customer);
+           dispatcher = request.getRequestDispatcher("customer/delete.jsp");
+       }
+       try{
+           dispatcher.forward(request,response);
+       } catch (ServletException e) {
+           e.printStackTrace();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+
+    }
+    private void deleteCustomer(HttpServletRequest request,HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = customerService.findById(id);
+        RequestDispatcher dispatcher;
+
+        if (customer == null){
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        }else {
+            customerService.remove(id);
+
+        }try{
+            response.sendRedirect("/customers");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void viewCustomer(HttpServletRequest request, HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("id"));
+        Customer customer = customerService.findById(id);
+        RequestDispatcher dispatcher;
+        if (customer == null) {
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        } else {
+            request.setAttribute("customer",customer);
+            dispatcher = request.getRequestDispatcher("customer/view.jsp");
+        } try{
+            dispatcher.forward(request,response);
+
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 
 }
