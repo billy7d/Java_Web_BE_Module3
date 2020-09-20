@@ -19,10 +19,12 @@
         <th width="10%">Mã KH</th>
 
     </tr>
-    <c:forEach items="${arrayList}" var="objCus">
+    <c:forEach items="${arrayList1}" var="objCus">
         <tr>
             <td>${objCus.name }</td>
             <td>${objCus.dob }</td>
+            <td>${objCus.address }</td>
+            <td><img src="${objCus.img }" width="100px" height="100px"></td>
         </tr>
     </c:forEach>
 </table>
