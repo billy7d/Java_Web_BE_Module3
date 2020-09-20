@@ -1,0 +1,44 @@
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(urlPatterns = "/products")
+public class Servlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        switch (action){
+            case "add":
+                break;
+            case "edit":
+                break;
+            case "delete":
+                break;
+            default:
+                break;
+
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        switch (action) {
+            case "add":
+                break;
+            case "edit":
+                break;
+            case "delete":
+                break;
+            case "view":
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void listProduct(HttpServletRequest request, HttpServletResponse response){
+
+    }
+}
