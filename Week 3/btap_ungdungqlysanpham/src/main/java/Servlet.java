@@ -129,7 +129,7 @@ public class Servlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String brand = request.getParameter("brand");
-        int price = (int) Double.parseDouble(request.getParameter("price"));
+        int price =  Integer.parseInt(request.getParameter("price"));
         String description = request.getParameter("description");
 
         Product product = products1.viewProductById(id);
