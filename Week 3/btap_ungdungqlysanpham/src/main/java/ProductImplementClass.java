@@ -1,21 +1,20 @@
 import java.util.ArrayList;
 
 public class ProductImplementClass implements ProductService {
-    private static ArrayList<Product> arrayList;
+    private static ArrayList<Product> arrayList = new ArrayList<>();
+
 
     static {
-        arrayList.add(1,new Product(1,"Iphone","Apple",250,"none"));
-        arrayList.add(2,new Product(2,"Note 9","Samsung",300,"none"));
-        arrayList.add(3,new Product(3,"Redmi","Xiaomi",100,"none"));
-        arrayList.add(4,new Product(4,"N1102","Nokia",500,"none"));
-
-
+        arrayList.add(new Product(0,"Iphone","Apple",250,"none"));
+        arrayList.add(new Product(1,"Note 9","Samsung",300,"none"));
+        arrayList.add(new Product(2,"Redmi","Xiaomi",100,"none"));
+        arrayList.add(new Product(3,"N1102","Nokia",500,"none"));
     }
 
 
     @Override
     public ArrayList<Product> showAll() {
-        return (ArrayList<Product>) arrayList.clone();
+        return arrayList;
     }
 
     @Override
@@ -23,10 +22,6 @@ public class ProductImplementClass implements ProductService {
         arrayList.add(product);
     }
 
-    @Override
-    public void editProduct(int id, Product product) {
-      arrayList.add(id, product);
-    }
 
     @Override
     public void removeProduct(Product product) {
@@ -36,6 +31,17 @@ public class ProductImplementClass implements ProductService {
     @Override
     public Product viewProductById(int id) {
        return arrayList.get(id);
+    }
+
+    @Override
+    public void updateProduct(int id, Product product) {
+        for (Product product1:arrayList){
+            if (product1.getId() == id){
+                product1 = product;
+                return;
+            }
+        }
+
     }
 
     @Override

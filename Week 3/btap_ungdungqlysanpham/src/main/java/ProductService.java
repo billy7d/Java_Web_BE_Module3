@@ -6,9 +6,9 @@ public interface ProductService {
 
     void addProduct(Product product);
 
-    void editProduct(int id, Product product);
-
     void removeProduct(Product product);
+
+    void updateProduct(int id, Product product);
 
     Product viewProductById(int id);
 
