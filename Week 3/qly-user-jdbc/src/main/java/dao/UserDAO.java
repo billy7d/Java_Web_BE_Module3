@@ -15,7 +15,7 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
-    private static final String SORT_SQL ="select * from users order by ?;";
+    private static final String SORT_SQL = "select * from users order by ?;";
 
     public UserDAO() {
     }
@@ -194,11 +194,11 @@ public class UserDAO implements IUserDAO {
         return usersByCountry;
     }
 
-    public void sort(String column){
+    public List<User> sort(String column){
         List<User> users  = new ArrayList<>();
-        User user = null;
+
         try (Connection connection = getConnection();
-              PreparedStatement preparedStatement = connection.prepareStatement(SORT_SQL);) {
+            PreparedStatement preparedStatement = connection.prepareStatement(SORT_SQL);) {
             preparedStatement.setString(1,column);
             System.out.println(preparedStatement);
 
@@ -209,15 +209,13 @@ public class UserDAO implements IUserDAO {
                 String name = resultSet.getString("name");
                 String country = resultSet.getString("country");
                 String email = resultSet.getString("email");
-                user = new User(id,name,country,email);
+                users.add(new User(id,name,country,email));
             }
-            users.add(user);
-
-
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return users;
     }
 
 
