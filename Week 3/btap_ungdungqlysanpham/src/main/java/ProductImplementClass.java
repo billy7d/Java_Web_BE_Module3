@@ -29,7 +29,7 @@ public class ProductImplementClass implements ProductService {
     }
 
     @Override
-    public Product viewProductById(int id) {
+    public Product getProductById(int id) {
        return arrayList.get(id);
     }
 

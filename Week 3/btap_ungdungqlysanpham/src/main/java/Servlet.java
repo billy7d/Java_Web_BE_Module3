@@ -5,9 +5,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 @WebServlet(urlPatterns = "/products")
@@ -108,7 +105,7 @@ public class Servlet extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request,HttpServletResponse reponse){
             int id = Integer.parseInt(request.getParameter("id"));
-            Product product = products1.viewProductById(id);
+            Product product = products1.getProductById(id);
             RequestDispatcher dispatcher;
 
             if (product ==null){
@@ -132,7 +129,7 @@ public class Servlet extends HttpServlet {
         int price =  Integer.parseInt(request.getParameter("price"));
         String description = request.getParameter("description");
 
-        Product product = products1.viewProductById(id);
+        Product product = products1.getProductById(id);
 
         RequestDispatcher dispatcher;
 

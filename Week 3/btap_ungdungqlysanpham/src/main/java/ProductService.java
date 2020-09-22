@@ -10,7 +10,7 @@ public interface ProductService {
 
     void updateProduct(int id, Product product);
 
-    Product viewProductById(int id);
+    Product getProductById(int id);
 
     Product findProductByName(ArrayList<Product> products,String name);
 
