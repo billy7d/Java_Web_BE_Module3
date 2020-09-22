@@ -1,8 +1,9 @@
 package dao;
 import model.User;
+
+import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class UserDAO implements IUserDAO {
     private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
@@ -14,6 +15,7 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
+    private static final String SORT_SQL ="select * from users order by ?;";
 
     public UserDAO() {
     }
@@ -101,7 +103,8 @@ public class UserDAO implements IUserDAO {
 
     public boolean deleteUser(int id) throws SQLException {
         boolean rowDeleted;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
         }
@@ -110,7 +113,8 @@ public class UserDAO implements IUserDAO {
 
     public boolean updateUser(User user) throws SQLException {
         boolean rowUpdated;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getCountry());
@@ -177,4 +181,45 @@ public class UserDAO implements IUserDAO {
             }
         }
     }
+
+    public List<User> getUserByCountry(String country){
+        List<User> users = selectAllUsers();
+        List<User> usersByCountry = new ArrayList<>();
+        for (User user: users){
+            if (user.getCountry().contains(country)
+            || user.getName().contains(country)){
+                usersByCountry.add(user);
+            }
+        }
+        return usersByCountry;
+    }
+
+    public void sort(String column){
+        List<User> users  = new ArrayList<>();
+        User user = null;
+        try (Connection connection = getConnection();
+              PreparedStatement preparedStatement = connection.prepareStatement(SORT_SQL);) {
+            preparedStatement.setString(1,column);
+            System.out.println(preparedStatement);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String country = resultSet.getString("country");
+                String email = resultSet.getString("email");
+                user = new User(id,name,country,email);
+            }
+            users.add(user);
+
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+
+
 }

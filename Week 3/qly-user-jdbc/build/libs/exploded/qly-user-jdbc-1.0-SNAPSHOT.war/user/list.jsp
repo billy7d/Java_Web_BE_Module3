@@ -17,8 +17,13 @@
     <h1>User Management</h1>
     <h2>
         <a href="/users?action=create">Add New User</a>
+        <form method="post" action="/users?action=search">
+        <input type="text" name="search" placeholder="input country">
+        <input type="submit" value="Search">
+        </form>
     </h2>
 </center>
+<form method="post">
 <div align="center">
     <table border="1" cellpadding="5">
         <caption><h2>List of Users</h2></caption>
@@ -28,6 +33,7 @@
             <th>Email</th>
             <th>Country</th>
             <th>Actions</th>
+            
         </tr>
         <c:forEach  items="${listUser}" var="user">
             <tr>
@@ -39,9 +45,14 @@
                     <a href="/users?action=edit&id=${user.id}">Edit</a>
                     <a href="/users?action=delete&id=${user.id}">Delete</a>
                 </td>
+
             </tr>
         </c:forEach>
+
+
     </table>
 </div>
+</form>
 </body>
+
 </html>
