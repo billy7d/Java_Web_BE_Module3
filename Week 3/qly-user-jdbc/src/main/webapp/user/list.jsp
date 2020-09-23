@@ -25,36 +25,31 @@
     </h2>
 </center>
 <form method="post">
-<div align="center">
-    <table border="1" cellpadding="5">
-        <caption><h2>List of Users</h2></caption>
-        <tr>
-            <form method="post" action="/users?action=sort">
-             <th>ID <input type="text" value="id" name="sort" /><input type="submit" placeholder="sort" /></th>
-             <th>Name <input type="button" name="sort" value="name"  /></th>
-             <th>Email <input type="button" name="sort" value="email" /></th>
-             <th>Country <input type="button" name="sort" value="country"/></th>
-             <th>Actions</th>
-            </form>
-
-        </tr>
-        <c:forEach  items="${listUser}" var="user">
+    <div align="center">
+        <table border="1" cellpadding="5">
+            <caption><h2>List of Users</h2></caption>
             <tr>
-                <td><c:out value="${user.id}"/></td>
-                <td><c:out value="${user.name}"/></td>
-                <td><c:out value="${user.email}"/></td>
-                <td><c:out value="${user.country}"/></td>
-                <td>
-                    <a href="/users?action=edit&id=${user.id}">Edit</a>
-                    <a href="/users?action=delete&id=${user.id}">Delete</a>
-                </td>
+                <th>Id <a href="/users?action=sort&value=id">sort</a></th>
+                <th>Name <a href="/users?action=sort&value=name">sort</a></th>
 
             </tr>
-        </c:forEach>
+            <c:forEach items="${listUser}" var="user">
+                <tr>
+                    <td><c:out value="${user.id}"/></td>
+                    <td><c:out value="${user.name}"/></td>
+                    <td><c:out value="${user.email}"/></td>
+                    <td><c:out value="${user.country}"/></td>
+                    <td>
+                        <a href="/users?action=edit&id=${user.id}">Edit</a>
+                        <a href="/users?action=delete&id=${user.id}">Delete</a>
+                    </td>
+
+                </tr>
+            </c:forEach>
 
 
-    </table>
-</div>
+        </table>
+    </div>
 </form>
 </body>
 

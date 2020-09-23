@@ -15,7 +15,7 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
-    private static final String SORT_SQL = "select * from users order by ?;";
+    private static final String SORT_SQL = "select * from users order by" +'?'+";";
 
     public UserDAO() {
     }

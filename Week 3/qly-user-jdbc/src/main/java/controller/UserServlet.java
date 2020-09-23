@@ -44,6 +44,7 @@ public class UserServlet extends HttpServlet {
                     sort(request, response);
                     break;
 
+
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -71,6 +72,7 @@ public class UserServlet extends HttpServlet {
                 case "sort":
                     sort(request, response);
                     break;
+
                 default:
                     listUser(request, response);
                     break;
@@ -153,19 +155,20 @@ public class UserServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
         dispatcher.forward(request,response);
 
-
     }
 
     private void sort(HttpServletRequest request,HttpServletResponse response) throws SQLException, IOException, ServletException {
-        String get = request.getParameter("sort");
+        String get = request.getParameter("value");
         List<User> users = userDAO.sort(get);
         request.setAttribute("listUser",users);
 
         RequestDispatcher dispatcher;
         dispatcher = request.getRequestDispatcher("user/list.jsp");
         dispatcher.forward(request,response);
-
     }
+
+
+
 
 
 }
