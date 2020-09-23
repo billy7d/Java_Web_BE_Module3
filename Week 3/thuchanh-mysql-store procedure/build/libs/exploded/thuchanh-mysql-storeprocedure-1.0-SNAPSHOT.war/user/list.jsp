@@ -31,6 +31,9 @@
             <tr>
                 <th>Id <a href="/users?action=sort&value=id">sort</a></th>
                 <th>Name <a href="/users?action=sort&value=name">sort</a></th>
+                <th>Email <a href="/users?action=sort&value=email">sort</a></th>
+                <th>Country <a href="/users?action=sort&value=country">sort</a></th>
+                <th>Action </th>
 
             </tr>
             <c:forEach items="${listUser}" var="user">
