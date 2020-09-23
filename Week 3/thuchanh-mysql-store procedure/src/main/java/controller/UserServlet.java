@@ -72,6 +72,16 @@ public class UserServlet extends HttpServlet {
                 case "sort":
                     sort(request, response);
                     break;
+//                case "permision":
+//                    addUserPermision(request, response);
+//                    break;
+//                case "test-without-tran":
+//                    testWithoutTran(request, response);
+//                    break;
+//
+//                case "test-use-tran":
+//                    testUseTran(request, response);
+//                    break;
 
                 default:
                     listUser(request, response);
@@ -84,7 +94,7 @@ public class UserServlet extends HttpServlet {
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
 
-        List<User> listUser = userDAO.selectAllUsers();
+        List<User> listUser = userDAO.showAllUsersByStoreProcedures();
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
         dispatcher.forward(request, response);
@@ -114,7 +124,7 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String country = request.getParameter("country");
         User newUser = new User(name, email, country);
-        userDAO.insertUserStore(newUser);
+        userDAO.insertUser(newUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
         dispatcher.forward(request, response);
     }
@@ -128,7 +138,7 @@ public class UserServlet extends HttpServlet {
         String country = request.getParameter("country");
 
         User book = new User(id, name, email, country);
-        userDAO.updateUser(book);
+        userDAO.updateUserByStoreProcedures(book);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         dispatcher.forward(request, response);
     }
@@ -167,6 +177,19 @@ public class UserServlet extends HttpServlet {
         dispatcher.forward(request,response);
     }
 
+//    private void addUserPermision(HttpServletRequest request,HttpServletResponse response){
+//        User user = new User("kien", "kienhoang@gmail.com", "vn");
+//        int[] permision = {1,2,4};
+//        userDAO.addUserTransaction(user,permision);
+//    }
+//
+//    private void testWithoutTran(HttpServletRequest request,HttpServletResponse response){
+//        userDAO.insertUpdateWithoutTransaction();
+//    }
+//
+//    private void testUseTran(HttpServletRequest request,HttpServletResponse response){
+//        userDAO.insertUpdateUseTransaction();
+//    }
 
 
 

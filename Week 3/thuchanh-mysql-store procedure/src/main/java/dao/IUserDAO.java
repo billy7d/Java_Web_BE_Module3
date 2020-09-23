@@ -21,5 +21,21 @@ public interface IUserDAO {
 
     public void insertUserStore(User user) throws SQLException;
 
+    public void addUserTransaction(User user,int[] permission);
+
+    //thuc hanh SQL khong dung Transaction
+    public void insertUpdateWithoutTransaction();
+
+    //thuc hanh SQL co su dung Transaction
+    public void insertUpdateUseTransaction();
+
+
+    //[Bài tập]Gọi MySql Stored Procedures từ JDBC
+    public List<User> showAllUsersByStoreProcedures();
+
+    public boolean updateUserByStoreProcedures(User user);
+
+
+
 }
 
