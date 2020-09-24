@@ -1,20 +1,23 @@
-body{
-    font-size:12px;
+body {
+    font-size: 12px;
     width: 100%;
 
 }
-#main{
+
+#main {
     width: 100%;
     padding: 0;
     border: 1px solid;
 }
-#head{
+
+#head {
     height: 100px;
     background-color: hotpink;
     border: 1px solid;
     padding: 15px;
 }
-#head-link{
+
+#head-link {
     height: 30px;
     left: 0px;
     right: 0px;
@@ -22,7 +25,8 @@ body{
 
     clear: both;
 }
-#left{
+
+#left {
     height: 150px;
     width: 25%;
     border: 1px solid;
@@ -31,17 +35,18 @@ body{
 
 }
 
-#content{
+#content {
     float: left;
-    width:50%;
+    width: 50%;
     border: 1px solid;
     padding: 0;
     height: 150px;
     margin-left: 5px;
 
 }
-#right{
-    width:  24% ;
+
+#right {
+    width: 24%;
     float: left;
     border: 1px solid;
     height: 150px;
@@ -49,7 +54,8 @@ body{
     margin-left: 5px;
 
 }
-#footer{
+
+#footer {
     clear: both;
     padding-top: 15px;
     border: solid 1px;
