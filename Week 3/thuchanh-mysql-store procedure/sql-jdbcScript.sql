@@ -33,12 +33,11 @@ IN user_name varchar(50),
 IN user_email varchar(50),
 IN user_country varchar(50)
 )
-
 BEGIN
 INSERT INTO users(name,email,country) values(user_name,user_email,user_country);
 END$$
-
 DELIMITER ;
+
 
 CREATE TABLE Permission(
 id int(11),
@@ -107,6 +106,7 @@ DELETE FROM USERS
 WHERE users.id = user_id;
 END //
 DELIMITER ;
+
 
 
 
