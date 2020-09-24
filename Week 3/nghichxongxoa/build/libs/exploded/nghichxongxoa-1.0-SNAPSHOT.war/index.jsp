@@ -56,7 +56,7 @@
 
 <body>
 <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
-    <a class="navbar-brand" href="#"><img src="https://i.pinimg.com/236x/35/93/fc/3593fc6c1af7ea7c1560cb08400d5694.jpg" width="80px" height="80"></a>
+    <a class="navbar-brand" href="#"><img src="https://i.pinimg.com/236x/35/93/fc/3593fc6c1af7ea7c1560cb08400d5694.jpg" width="80" height="80"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -118,7 +118,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="card col" style="width: 300px">
+        <div class="card col">
             <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
             <div class="card-body">
                 <h4 class="card-title">Kem Oc Que</h4>
@@ -127,7 +127,7 @@
                 <a href="#" class="btn btn-primary">Order</a>
             </div>
         </div>
-        <div class="card col" style="width: 300px">
+        <div class="card col">
             <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
             <div class="card-body col">
                 <h4 class="card-title">Kem Oc Que</h4>
@@ -136,7 +136,7 @@
                 <a href="#" class="btn btn-primary">Order</a>
             </div>
         </div>
-        <div class="card col" style="width: 300px">
+        <div class="card col">
             <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
             <div class="card-body col">
                 <h4 class="card-title">Kem Oc Que</h4>
@@ -148,7 +148,7 @@
     </div>
 
     <div class="row">
-        <div class="card col" style="width: auto">
+        <div class="card col">
             <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
             <div class="card-body">
                 <h4 class="card-title">Kem Oc Que</h4>
@@ -157,7 +157,7 @@
                 <a href="#" class="btn btn-primary">Order</a>
             </div>
         </div>
-        <div class="card col" style="width: auto">
+        <div class="card col">
             <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
             <div class="card-body col">
                 <h4 class="card-title">Kem Oc Que</h4>
@@ -166,7 +166,7 @@
                 <a href="#" class="btn btn-primary">Order</a>
             </div>
         </div>
-        <div class="card col" style="width: auto">
+        <div class="card col">
             <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
             <div class="card-body col">
                 <h4 class="card-title">Kem Oc Que</h4>
