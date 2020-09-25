@@ -13,10 +13,8 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="../../../bootstrap-4.5.2-dist/css/bootstrap.css">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
-
 
 </head>
 <style>
@@ -39,12 +37,12 @@
         margin-left: 120px;
     }
 
-    #welcome{
+    .display-4{
         margin-top: 40px;
     }
 
     .card{
-        margin-left: 70px;
+        margin-left: 60px;
         margin-top: 30px;
 
     }
@@ -52,11 +50,20 @@
     .footer-img{
         margin-left: 70px;
     }
+
+    .card-img-top{
+        width: 260px;
+        height: 320px;
+    }
+    .navbar-brand{
+        padding: 0;
+
+    }
 </style>
 
 <body>
 <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
-    <a class="navbar-brand" href="#"><img src="https://i.pinimg.com/236x/35/93/fc/3593fc6c1af7ea7c1560cb08400d5694.jpg" width="80" height="80"></a>
+    <a class="navbar-brand" href="#"><img src="https://i.pinimg.com/236x/35/93/fc/3593fc6c1af7ea7c1560cb08400d5694.jpg" width="50px" height="50px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -76,16 +83,19 @@
 </nav>
 
 <!-- Image Slider-->
-<div id="slides" class="carousel slide" data-ride="carousel">
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
     <ul class="carousel-indicators">
-        <li data-target="#slides" data-slide-to="0" class="active"></li>
-        <li data-target="#slides" data-slide-to="1"></li>
-        <li data-target="#slides" data-slide-to="2"></li>
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
     </ul>
 
+    <!-- The slideshow -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://wallpapershome.com/images/pages/pic_h/15363.jpg" width="400" height="400" class="slide-img">
+            <img src="https://wallpapershome.com/images/pages/pic_h/15363.jpg">
             <div class="carousel-caption">
                 <h1>LamThon Ice''Shop</h1>
                 <h3>có mỗi con wave tàu</h3>
@@ -93,18 +103,27 @@
                 <button type="button" class="btn btn-info btn-lg">Hung dzai</button>
             </div>
         </div>
+
         <div class="carousel-item">
-            <img src="https://wallpapershome.com/images/pages/pic_h/15360.jpg" width="400" height="400" class="slide-img">
+            <img src="https://wallpapershome.com/images/pages/pic_h/15360.jpg">
         </div>
         <div class="carousel-item">
-            <img src="https://wallpapershome.com/images/pages/pic_h/488.jpg" width="400" height="400" class="slide-img">
+            <img src="https://wallpapershome.com/images/pages/pic_h/14666.jpg">
         </div>
     </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
 </div>
 
 <!--Welcome-->
-<div class="container-fluid" id="welcome">
-    <div class="row welcome text-center">
+<div class="container-fluid">
+    <div class="row text-center">
         <div class="col-12">
             <h1 class="display-4">LamThon Ice''Shop</h1>
         </div>
@@ -116,63 +135,75 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="card col">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
-            <div class="card-body">
-                <h4 class="card-title">Kem Oc Que</h4>
-                <h5>56.000VND</h5>
-                <p class="card-text">Kem ngon</p>
-                <a href="#" class="btn btn-primary">Order</a>
+        <div class="col-sm-6 col-md-4">
+            <div class="card"  style="width: 262px;">
+                <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Kem Oc Que</h4>
+                    <h5>56.000VND</h5>
+                    <p class="card-text">Kem ngon</p>
+                    <a href="#" class="btn btn-primary">Order</a>
+                </div>
             </div>
         </div>
-        <div class="card col">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
-            <div class="card-body col">
-                <h4 class="card-title">Kem Oc Que</h4>
-                <h5>56.000VND</h5>
-                <p class="card-text">Kem ngon</p>
-                <a href="#" class="btn btn-primary">Order</a>
+        <div class="col-sm-6 col-md-4">
+            <div class="card" style="width: 262px;">
+                <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Kem Oc Que</h4>
+                    <h5>56.000VND</h5>
+                    <p class="card-text">Kem ngon</p>
+                    <a href="#" class="btn btn-primary">Order</a>
+                </div>
             </div>
         </div>
-        <div class="card col">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
-            <div class="card-body col">
-                <h4 class="card-title">Kem Oc Que</h4>
-                <h5>56.000VND</h5>
-                <p class="card-text">Kem ngon</p>
-                <a href="#" class="btn btn-primary">Order</a>
+        <div class=" col-md-4">
+            <div class="card" style="width: 262px;">
+                <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Kem Oc Que</h4>
+                    <h5>56.000VND</h5>
+                    <p class="card-text">Kem ngon</p>
+                    <a href="#" class="btn btn-primary">Order</a>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="card col">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
-            <div class="card-body">
-                <h4 class="card-title">Kem Oc Que</h4>
-                <h5>56.000VND</h5>
-                <p class="card-text">Kem ngon</p>
-                <a href="#" class="btn btn-primary">Order</a>
+        <div class="col-sm-6 col-md-4">
+            <div class="card"  style="width: 262px;">
+                <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Kem Oc Que</h4>
+                    <h5>56.000VND</h5>
+                    <p class="card-text">Kem ngon</p>
+                    <a href="#" class="btn btn-primary">Order</a>
+                </div>
             </div>
         </div>
-        <div class="card col">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
-            <div class="card-body col">
-                <h4 class="card-title">Kem Oc Que</h4>
-                <h5>56.000VND</h5>
-                <p class="card-text">Kem ngon</p>
-                <a href="#" class="btn btn-primary">Order</a>
+        <div class="col-sm-6 col-md-4">
+            <div class="card" style="width: 262px;">
+                <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Kem Oc Que</h4>
+                    <h5>56.000VND</h5>
+                    <p class="card-text">Kem ngon</p>
+                    <a href="#" class="btn btn-primary">Order</a>
+                </div>
             </div>
         </div>
-        <div class="card col">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
-            <div class="card-body col">
-                <h4 class="card-title">Kem Oc Que</h4>
-                <h5>56.000VND</h5>
-                <p class="card-text">Kem ngon</p>
-                <a href="#" class="btn btn-primary">Order</a>
+        <div class=" col-md-4">
+            <div class="card" style="width: 262px;">
+                <img class="card-img-top" src="https://i.pinimg.com/564x/29/b1/a0/29b1a0a2b674398ce1cbfe7bfd8185af.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Kem Oc Que</h4>
+                    <h5>56.000VND</h5>
+                    <p class="card-text">Kem ngon</p>
+                    <a href="#" class="btn btn-primary">Order</a>
+                </div>
             </div>
         </div>
     </div>
