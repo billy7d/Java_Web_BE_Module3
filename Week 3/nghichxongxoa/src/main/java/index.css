@@ -24,7 +24,7 @@
 }
 
 .card{
-    margin-left: 70px;
+    margin-left: 60px;
     margin-top: 30px;
 
 }
@@ -32,3 +32,10 @@
 .footer-img{
     margin-left: 70px;
 }
+
+.card-img-top{
+    width: 260px;
+    height: 320px;
+}
+
+
