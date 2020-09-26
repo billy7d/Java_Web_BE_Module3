@@ -72,10 +72,13 @@
                 <a class="nav-link" href="#">Funfacts</a>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn btn-outline-danger" style=" position:absolute ; right: 15px; top:auto" >Log in</button>
+                <button type="button" class="btn btn-outline-danger" style=" color: hotpink; position:absolute ; right: 15px; top:auto" >Log in</button>
             </li>
             <li>
-                <button style="font-size:21px; color: hotpink; border-color: hotpink ; position:absolute ; right: 110px">Button <i class="fa fa-shopping-cart"></i></button>
+                <button class="btn btn-outline-danger" style="color: hotpink; position:absolute ; right: 110px">Button <i class="fa fa-shopping-cart"></i></button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-outline-danger" style="color: hotpink; position:absolute ; right: 250px"><a href="trangchu?action=create" style="text-decoration: none">Add Item</a> </button>
             </li>
         </ul>
     </div>
