@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: KimShin
-  Date: 9/26/2020
-  Time: 10:21 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -137,13 +130,13 @@
                 <div class="card"  style="width: 262px;">
                     <img class="card-img-top" src="${iceCream.src}">
                     <div class="card-body">
-                        <input type="text" disabled value="${iceCream.iceCreamId}"/>
+                        <input type="text" disabled name="id" value="${iceCream.iceCreamId}"/>
                         <h4 class="card-title"><c:out value="${iceCream.name}"/></h4>
                         <h5><c:out value="${iceCream.price}"/> </h5>
                         <p class="card-text"><c:out value="${iceCream.description}"/></p>
                         <a href="#" class="btn btn-primary">Order</a>
-                        <a href="trangchu?action=edit" class="btn btn-primary">Edit</a>
-                        <a href="trangchu?action=delete" class="btn btn-primary">Delete</a>
+                        <a href="trangchu?action=edit&id=${iceCream.iceCreamId}" class="btn btn-primary">Edit</a>
+                        <a href="trangchu?action=deleteid=${iceCream.iceCreamId}" class="btn btn-primary">Delete</a>
                     </div>
                 </div>
             </div>

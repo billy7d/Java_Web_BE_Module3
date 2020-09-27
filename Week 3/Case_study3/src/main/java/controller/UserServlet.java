@@ -1,5 +1,6 @@
 package controller;
 
+import model.Category;
 import model.IceCream;
 import service.IceCreamDAO;
 
@@ -59,7 +60,6 @@ public class UserServlet extends HttpServlet {
 
                     break;
                 case "sort":
-
                     break;
                 case "search":
                     break;
@@ -86,8 +86,7 @@ public class UserServlet extends HttpServlet {
     }
 
 
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, ServletException, IOException {
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         IceCream existingIce = iceCreamDAO.searchIceCream(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("Addmin/edit.jsp");
@@ -107,9 +106,23 @@ public class UserServlet extends HttpServlet {
         int soldQuantity = Integer.parseInt(request.getParameter("soldQuantity"));
         IceCream newIceCream = new IceCream(categoryId, name, price,discount,IceCreamDescription,soldQuantity,imgSrc);
         iceCreamDAO.insertIceCream(newIceCream);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Addmin/create.jsp");
         dispatcher.forward(request, response);
     }
+
+//    private void insertCategory(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+//         int categoryId = Integer.parseInt(request.getParameter("category"));
+//         String categoryName;
+//         if (categoryId == 1){
+//             categoryName = "Kem Que";
+//         } else categoryName = "Oc Que";
+//        Category category = new Category(categoryId,categoryName);
+//        iceCreamDAO.insertCategory(category);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("Addmin/create.jsp");
+//        dispatcher.forward(request,response);
+//
+//
+//    }
 
     private void updateIceCream(HttpServletRequest request,HttpServletResponse response) throws SQLException, ServletException, IOException {
         IceCream iceCream;
@@ -118,11 +131,11 @@ public class UserServlet extends HttpServlet {
         String name = request.getParameter("name");
         String imgSrc  = request.getParameter("src");
         int discount = Integer.parseInt(request.getParameter("discount"));
-        double price = Double.parseDouble("price");
+        double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
         int soldQuantity = Integer.parseInt(request.getParameter("soldQuantity"));
 
-        iceCream = new IceCream(categoryId,name,price,discount,description,soldQuantity,imgSrc);
+        iceCream = new IceCream(id,categoryId,name,price,discount,description,soldQuantity,imgSrc);
         iceCreamDAO.updateIceCream(iceCream);
 
         RequestDispatcher dispatcher  = request.getRequestDispatcher("Addmin/edit.jsp");

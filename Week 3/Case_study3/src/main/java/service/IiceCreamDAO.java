@@ -1,5 +1,6 @@
 package service;
 
+import model.Category;
 import model.IceCream;
 
 import javax.xml.registry.infomodel.User;
@@ -24,4 +25,6 @@ public interface IiceCreamDAO {
     public List<IceCream> sortIceCreamByPrice(String Price)throws SQLException;
 
     public List<IceCream> sortIceCreambyQuantity(String Quantity)throws SQLException;
+
+    public boolean insertCategory(Category category);
 }

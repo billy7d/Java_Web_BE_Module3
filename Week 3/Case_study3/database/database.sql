@@ -20,7 +20,7 @@ name varchar(255) NOT NULL,
 discount int,
 ice_description text,
 price double(10,3) NOT NULL,
-scr text,
+src text,
 sold_quantity int,
 foreign key (category_id) references category(category_id)
  );
@@ -39,7 +39,7 @@ foreign key (category_id) references category(category_id)
  ice_cream_id int,
  pice_discount double(10,3) NOT NULL,
  quality int NOT NULL,
- total_money double (10,3)
+ total_money double (10,3),
  foreign key (order_id) references orders (order_id),
  foreign key (ice_cream_id) references ice_cream(ice_cream_id)
  );
@@ -53,7 +53,7 @@ BEGIN
     FROM ice_cream
     join category on ice_cream.category_id = category.category_id
 	where ice_cream.category_id = category__id;
-END $$
+END$$
 DELIMITER ;
 
 DELIMITER $$
@@ -62,7 +62,7 @@ begin
 	SELECT ice_cream.ice_cream_id, ice_cream.category_id ,ice_cream.name ,ice_cream.discount, ice_cream.ice_description, ice_cream.price, ice_cream.sold_quantity, ice_cream.src
 	FROM ice_cream
     ORDER BY ice_cream.price;
-END $$
+END$$
 DELIMITER ;
 
 DELIMITER $$
@@ -71,55 +71,73 @@ begin
 	SELECT ice_cream.ice_cream_id, ice_cream.category_id ,ice_cream.name ,ice_cream.discount, ice_cream.ice_description, ice_cream.price, ice_cream.sold_quantity, ice_cream.src
 	FROM ice_cream
     ORDER BY ice_cream.sold_quantity;
-END $$
+END$$
 DELIMITER ;
 
 DELIMITER $$
 
 DELIMITER $$
-CREATE procedure update_IceCream(in ice_cream_id int, in category_id int,in name varchar(255),in discount int, in ice_description text, in price double(10,3), in scr text, in sold_quantity int)
+CREATE procedure update_IceCream(in ice_cream_id1 int, in category_id1 int,in name1 varchar(255),in discount1 int, in ice_description1 text, in price1 double(10,3), in src1 text, in sold_quantity1 int)
 BEGIN
 UPDATE ice_cream
-SET category_id = category_id, name = name, discount = discount, ice_description = ice_description, price = price, sold_quantity = sold_quantity, scr = scr
-WHERE ice_cream_id = ice_cream_id;
-END $$
+SET category_id = category_id1, name = name1, discount = discount1, ice_description = ice_description1, price = price1, sold_quantity = sold_quantity1, src = src1
+WHERE ice_cream.ice_cream_id = ice_cream_id1;
+END$$
+DELIMITER ;
+
+
 DELIMITER $$
-
-
-DELIMITER //
 CREATE procedure insert_IceCream(in category_id int,in name varchar(255),in discount int,
-in ice_description text, in price double(10,3), in scr text, in sold_quantity int)
+in ice_description text, in price double(10,3), in src text, in sold_quantity int)
 BEGIN
 INSERT INTO ice_cream(category_id,name,discount,ice_description,price,src,sold_quantity)
 VALUES (category_id,name,discount,ice_description,price,src,sold_quantity);
-END //
-DELIMITER //
+END$$
+DELIMITER ;
 
 
-DELIMITER //
-CREATE PROCEDURE select_all_ice()
+DELIMITER $$
+CREATE PROCEDURE insert_IceCreamselect_all_ice()
 BEGIN
 SELECT * FROM ice_cream;
-END //
-DELIMITER //
+END$$
+DELIMITER ;
 
 
-DELIMITER //
+DELIMITER $$
 CREATE procedure delete_ice(in id int)
 BEGIN
 delete from ice_cream where ice_cream.ice_cream_id = id;
-END //
-DELIMITER //
+END$$
+DELIMITER ;
 
 
-DELIMITER //
+DELIMITER $$
 CREATE procedure search_ice_cream_by_id(in id int)
 BEGIN
 SELECT ice_cream.ice_cream_id, ice_cream.category_id ,ice_cream.name ,ice_cream.discount, ice_cream.ice_description, ice_cream.price, ice_cream.sold_quantity, ice_cream.src
 FROM ice_cream
 Where ice_cream.ice_cream_id = id;
-END //
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE insert_category(in id int, in name varchar(255))
+BEGIN
+INSERT INTO category(category.category_id,category.category_name) values(id,name);
+END$$
+DELIMITER ;
+
 DELIMITER //
+CREATE PROCEDURE select_all_ice()
+BEGIN
+SELECT * FROM ice_cream;
+END//
+DELIMITER //
+
+
+
+
 
 
 

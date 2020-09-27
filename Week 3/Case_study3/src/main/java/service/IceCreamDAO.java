@@ -1,5 +1,6 @@
 package service;
 
+import model.Category;
 import model.IceCream;
 
 import java.sql.*;
@@ -7,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IceCreamDAO implements IiceCreamDAO {
-    private String jdbcURL="jdbc:mysql://localhost:3306/ice_cream_shop?userSSL=false";
-    private String jdbcUsername = "root";
-    private String jbdcPassword = "hung30111995";
+    private final String jdbcURL="jdbc:mysql://localhost:3306/ice_cream_shop?useSSL=false";
+    private final String jdbcUsername = "root";
+    private final String jbdcPassword = "hung30111995";
 
 
     public IceCreamDAO(){
@@ -49,6 +50,24 @@ public class IceCreamDAO implements IiceCreamDAO {
             e.printStackTrace();
         }
         return isInsertIceCream;
+    }
+
+    @Override
+    public boolean insertCategory(Category category) {
+        boolean isInsertCategory = false;
+        String query = "{CALL_insert_category(?,?)}";
+        try(Connection connection = getConnection();
+        CallableStatement callableStatement = connection.prepareCall(query)){
+            callableStatement.setInt(1,category.getId());
+            callableStatement.setString(2, category.getName());
+            System.out.println(callableStatement);
+            isInsertCategory = callableStatement.executeUpdate()>0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            e.getMessage();
+        }
+
+        return isInsertCategory;
     }
 
     @Override
@@ -96,7 +115,7 @@ public class IceCreamDAO implements IiceCreamDAO {
     @Override
     public boolean updateIceCream(IceCream iceCream) throws SQLException {
         boolean updateIceCream = false;
-        String query = "{call update_IceCream(?,?,?,?,?,?,?,?);}";
+        String query = "{CALL update_IceCream(?,?,?,?,?,?,?,?)}";
         try(Connection connection = getConnection();
             CallableStatement callableStatement = connection.prepareCall(query);){
             callableStatement.setInt(1,iceCream.getIceCreamId());
@@ -116,23 +135,24 @@ public class IceCreamDAO implements IiceCreamDAO {
     }
 
     @Override
-    public IceCream searchIceCream(int id) throws SQLException {
-        IceCream iceCream = null;
-        String query = "{call search_ice_cream_by_id(?);}";
+    public IceCream searchIceCream(int id)  {
+        IceCream iceCream =null;
+        String query = "{call search_ice_cream_by_id(?)}";
         try(Connection connection = getConnection();
             CallableStatement callableStatement = connection.prepareCall(query);){
             callableStatement.setInt(1, id);
+            System.out.println(callableStatement);
             ResultSet rs = callableStatement.executeQuery();
             while (rs.next()){
-                id = rs.getInt("ice_cream_id") ;
+                int id1 = rs.getInt("ice_cream_id");
                 int category = rs.getInt("category_id");
                 String name = rs.getString("name");
                 int discount = rs.getInt("discount");
                 String ice_description = rs.getString("ice_description");
-                int sold_quantity = rs.getInt("sold_quantity");
                 double price = rs.getDouble("price");
+                int sold_quantity = rs.getInt("sold_quantity");
                 String src = rs.getString("src");
-                iceCream = new IceCream(id, category, name, price,discount, ice_description, sold_quantity, src);
+                iceCream = new IceCream(id1, category, name, price,discount, ice_description, sold_quantity, src);
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -143,7 +163,7 @@ public class IceCreamDAO implements IiceCreamDAO {
     @Override
     public List<IceCream> searchIceCreamByCategory(int idCategory) throws SQLException {
         List<IceCream> iceCreams = new ArrayList<>();
-        String query = "{Call get_ice_cream_by_category(?);}";
+        String query = "{Call get_ice_cream_by_category(?)}";
         try(Connection connection = getConnection();
             CallableStatement callableStatement = connection.prepareCall(query);){
             callableStatement.setInt(1, idCategory);
@@ -186,7 +206,7 @@ public class IceCreamDAO implements IiceCreamDAO {
     @Override
     public List<IceCream> sortIceCreamByPrice(String Price) throws SQLException {
         List<IceCream> iceCreams = new ArrayList<>();
-        String query = "{Call sort_ice_cream_by_price();}";
+        String query = "{Call sort_ice_cream_by_price()}";
         try(Connection connection = getConnection();
             CallableStatement callableStatement = connection.prepareCall(query);){
             ResultSet rs = callableStatement.executeQuery();
@@ -211,7 +231,7 @@ public class IceCreamDAO implements IiceCreamDAO {
     @Override
     public List<IceCream> sortIceCreambyQuantity(String Quantity) throws SQLException {
         List<IceCream> iceCreams = new ArrayList<>();
-        String query = "{Call sort_ice_cream_by_quantity();}";
+        String query = "{Call sort_ice_cream_by_quantity()}";
         try(Connection connection = getConnection();
             CallableStatement callableStatement = connection.prepareCall(query);){
             ResultSet rs = callableStatement.executeQuery();
@@ -231,4 +251,6 @@ public class IceCreamDAO implements IiceCreamDAO {
         }
         return iceCreams;
     }
+
+
 }

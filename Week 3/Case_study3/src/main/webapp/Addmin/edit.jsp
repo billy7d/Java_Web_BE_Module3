@@ -21,7 +21,7 @@
                 </h2>
             </caption>
             <c:if test="${ice != null}">
-                <input type="hidden" name="id" value="<c:out value='${ice.id}' />"/>
+                <input type="text" disabled name="id" value="<c:out value='${ice.iceCreamId}' />"/>
             </c:if>
             <tr>
                 <th>Ice Category:</th>
