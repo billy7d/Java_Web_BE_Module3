@@ -10,11 +10,13 @@ service/UserDAO.java
  service.UserDAO
 model/Users.java
  model.Users
-model/Item.java
- model.Item
+controller/UserServlet.java
+ controller.UserServlet
 service/IUserDAO.java
  service.IUserDAO
 service/IceCreamDAO.java
  service.IceCreamDAO
-controller/UserServlet.java
- controller.UserServlet
+model/Item.java
+ model.Item
+controller/CartServlet.java
+ controller.CartServlet

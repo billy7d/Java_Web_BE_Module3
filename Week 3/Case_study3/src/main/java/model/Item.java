@@ -1,19 +1,27 @@
 package model;
 
 public class Item {
+
+    private IceCream iceCream;
     private int itemId;
     private int orderId;
     private int iceCreamId;
-    private int quality;
+    private int quantity;
     private int price;
+
 
     public Item(){
     }
 
-    public Item(int orderId, int iceCreamId, int quality){
+    public Item(int orderId, int iceCreamId, int quantity){
         this.orderId = orderId;
         this.iceCreamId = iceCreamId;
-        this.quality = quality;
+        this.quantity = quantity;
+    }
+
+    public Item(IceCream iceCream,int quantity){
+        this.iceCream = iceCream;
+        this.quantity = quantity;
     }
 
     public int getItemId() {
@@ -40,19 +48,27 @@ public class Item {
         this.iceCreamId = iceCreamId;
     }
 
-    public int getQuality() {
-        return quality;
-    }
-
-    public void setQuality(int quality) {
-        this.quality = quality;
-    }
-
     public int getPrice() {
         return price;
     }
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public IceCream getIceCream() {
+        return iceCream;
+    }
+
+    public void setIceCream(IceCream iceCream) {
+        this.iceCream = iceCream;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

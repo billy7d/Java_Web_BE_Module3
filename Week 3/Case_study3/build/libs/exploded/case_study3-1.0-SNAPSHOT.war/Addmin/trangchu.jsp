@@ -134,9 +134,9 @@
                         <h4 class="card-title"><c:out value="${iceCream.name}"/></h4>
                         <h5><c:out value="${iceCream.price}"/> </h5>
                         <p class="card-text"><c:out value="${iceCream.description}"/></p>
-                        <a href="#" class="btn btn-primary">Order</a>
+                        <a href="cart?action=order&id=${iceCream.iceCreamId}" class="btn btn-primary">Order</a>
                         <a href="trangchu?action=edit&id=${iceCream.iceCreamId}" class="btn btn-primary">Edit</a>
-                        <a href="trangchu?action=deleteid=${iceCream.iceCreamId}" class="btn btn-primary">Delete</a>
+                        <a href="trangchu?action=delete&id=${iceCream.iceCreamId}" class="btn btn-primary">Delete</a>
                     </div>
                 </div>
             </div>
