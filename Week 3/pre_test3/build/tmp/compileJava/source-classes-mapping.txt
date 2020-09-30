@@ -1,0 +1,10 @@
+Model/IFProduct.java
+ Model.IFProduct
+Model/Product.java
+ Model.Product
+Model/Category.java
+ Model.Category
+Model/IFProductDAO.java
+ Model.IFProductDAO
+Controller/ProductServlet.java
+ Controller.ProductServlet
